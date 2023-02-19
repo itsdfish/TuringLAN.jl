@@ -41,7 +41,6 @@ function logpdf(m::VSModel, data::Vector{<:Real})
     μ = m.μ
     model = m.neural_net
     σ = 1.0
-    fill(μ, 1, n)
     m_data = [fill(μ, 1, n);
                     fill(σ, 1, n);
                     data']
@@ -56,9 +55,9 @@ end
 
 data = Float32.(rand(Normal(0, 1), 150))
 
-# Turing.setadbackend(:forwarddiff)
+#Turing.setadbackend(:forwarddiff)
 # Turing.setadbackend(:reversediff)
-Turing.setadbackend(:zygote)
+ Turing.setadbackend(:zygote)
 
 delta = 0.65
 n_adapt = 1000
