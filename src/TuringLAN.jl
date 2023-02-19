@@ -1,5 +1,10 @@
 module TuringLAN
+    using Flux
+    using Flux: logsumexp
+    using Flux: params
+    using ProgressMeter
 
-# Write your package code here.
+    export train_model
 
+    include("flux_utilities.jl")
 end
