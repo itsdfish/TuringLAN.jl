@@ -41,7 +41,8 @@ function logpdf(m::VSModel, data::Vector{<:Real})
     μ = m.μ
     model = m.neural_net
     σ = 1.0
-    m_data = Float32[fill(μ, 1, n);
+    fill(μ, 1, n)
+    m_data = [fill(μ, 1, n);
                     fill(σ, 1, n);
                     data']
     LLs = model(m_data)
